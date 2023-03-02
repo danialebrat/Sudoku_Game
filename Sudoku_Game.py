@@ -79,7 +79,7 @@ def is_valid_move(board, row, col, value):
 
 def print_board(board):
     """
-    Prints the Sudoku board.
+    Prints the Sudoku board in a more readable format.
 
     Args:
         board: A 2D list representing the Sudoku board.
@@ -87,8 +87,20 @@ def print_board(board):
     Returns:
         None.
     """
-    for row in board:
-        print(row)
+    print("+-------+-------+-------+")
+    for i, row in enumerate(board):
+        row_str = "| "
+        for j, value in enumerate(row):
+            if value == 0:
+                row_str += ". "
+            else:
+                row_str += str(value) + " "
+            if j == 2 or j == 5:
+                row_str += "| "
+        row_str += "|"
+        print(row_str)
+        if i == 2 or i == 5:
+            print("+-------+-------+-------+")
 
 
 
